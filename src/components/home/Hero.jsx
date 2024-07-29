@@ -9,7 +9,7 @@ import HeroIcon from "../../utility/HeroIcon";
 
 const Hero = () => {
   return (
-    <div className="w-screen h-screen ">
+    <div id="home" className="w-screen h-screen ">
       {/* content section  */}
       <div className="w-full h-full  md:flex md:items-center  relative">
         <div className="absolute top-1/3 left-[10%] ">

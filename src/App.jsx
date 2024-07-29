@@ -2,8 +2,8 @@ import React from 'react'
 import Header from './components/layout/headers/Header'
 import Hero from './components/home/Hero'
 import Services from './components/services/Services'
-
-
+import Skills from './components/Skills/Skills'
+import Projects from './components/project/Projects'
 
 const App = () => {
   return (
@@ -11,9 +11,11 @@ const App = () => {
       <header className='w-full fixed z-20'>
         <Header/>
       </header>
-      <main id='home' className='w-full   text-white'>
+      <main  className='w-full   text-white'>
         <Hero/>
         <Services/>
+        <Skills/>
+        <Projects/>
       </main>
     </div>
   )

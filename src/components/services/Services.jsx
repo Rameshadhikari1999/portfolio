@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <div id='services' className="w-full h-screen bg-secondary p-5 ">
       <p className='text-sm pl-5 py-5 text-gray-400'>|| Services</p>
-      <h1 className='text-3xl pl-5 py-2 capitalize font-Poppins text-gray-300 font-medium'>Service provide for</h1>
+      <h1 className='text-3xl lg:text-5xl pl-5 py-2 capitalize font-Poppins text-gray-300 font-medium'>Service provide for</h1>
 
       {/* slicer section */}
       <div className='container mx-auto'>

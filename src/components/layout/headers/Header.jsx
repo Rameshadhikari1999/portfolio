@@ -16,7 +16,6 @@ const [disWidth, setDisWidth] = React.useState(window.innerWidth);
   React.useEffect(() => {
     const handleResize = () => {
       const currentWidth = window.innerWidth;
-      console.log(currentWidth, 'width')
       setDisWidth(currentWidth);
       if (currentWidth < 1020) {
         setShowNav(false);

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-scroll'
 import './style.css'
-const NavItem = ({item}) => {
+const NavItem = ({item, onClick}) => {
   return (
     <li  className='w-full text-xl px-4'>
                     <Link
@@ -12,6 +12,7 @@ const NavItem = ({item}) => {
                         smooth={true}
                         offset={-70}
                         duration={500}
+                        onClick={onClick}
                     >{item.name}</Link>
                 </li>
   )

@@ -7,13 +7,6 @@ const Slider = () => {
   const [slidesToShow, setSlidesToShow] = useState(1);
   const [direction, setDirection] = useState('forward');
 
-//   const slides = [
-//     "Slide 1: Lorem ipsum dolor sit amet.",
-//     "Slide 2: Consectetur adipiscing elit.",
-//     "Slide 3: Integer molestie lorem at massa.",
-//     "Slide 4: Facilisis in pretium nisl aliquet.",
-//     "Slide 5: Nulla volutpat aliquam velit.",
-//   ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,7 +30,7 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000); // Change slide every 3 seconds
+    }, 5000); 
 
     return () => {
       clearInterval(interval);
@@ -65,15 +58,16 @@ const Slider = () => {
 
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-fit">
     <div className="w-full flex items-center justify-center overflow-hidden">
       <div className="flex transition-transform  ease-in-out duration-1000" style={{ transform: `translateX(-${(100 / slidesToShow) * currentSlide}%)` }}>
         {slides.map((Slide, index) => (
           <div
             key={index}
-            className={`w-full md:w-1/${slidesToShow} p-2 flex-shrink-0`}
+            className={` p-2 flex-shrink-0`}
+            style={{ width: `${100 / slidesToShow}%` }}
           >
-            <div className="w-1/2 md:w-full h-full items-center justify-center bg-primary p-5 text-white mx-auto rounded-md">
+            <div className="w-1/2 md:w-full  bg-primary p-5 text-white mx-auto rounded-md">
               <Slide.Icon size={100} className='pl-5' />
               <h1 className='text-xl p-5'>{Slide.title}</h1>
               {Slide.skils.map((skill) => (
@@ -90,11 +84,11 @@ const Slider = () => {
       </div>
     </div>
     <ul className='mt-10 w-1/2 mx-auto flex items-center justify-center gap-5'>
-        {slides.map((_, index) => (
+        {slides.slice(0, slides.length-1).map((_, index) => (
             <li
                 key={index}
-                className={`w-3 h-3 rounded-full cursor-pointer ${index === currentSlide ? 'bg-primary' : 'bg-gray-300'}`}
-                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full cursor-pointer ${index === currentSlide ? 'bg-secondary md:bg-primary' : 'bg-gray-300'}`}
+                onClick={() => setCurrentSlide(index === slides.length-1 ? index-1 : index)}
             ></li>
         ))}
       

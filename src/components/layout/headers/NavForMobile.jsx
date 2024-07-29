@@ -17,7 +17,7 @@ const NavForMobile = ({openNav, handleCloseNav}) => {
 
         <ul className='w-full flex flex-col gap-5 justify-center items-start mx-2 absolute top-[15%] left-0'>
             {menu.map((item) => (
-                <NavItem key={item.id} item={item} />
+                <NavItem key={item.id} item={item} onClick={handleCloseNav} />
             ))}
             
         </ul>
