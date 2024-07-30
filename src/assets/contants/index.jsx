@@ -1,6 +1,12 @@
 import { MdDoorFront } from "react-icons/md";
 import { SiBackendless } from "react-icons/si";
 import { CgWebsite } from "react-icons/cg";
+import img1 from '../images/project-1.png';
+import img2 from '../images/project-2.png';
+import img3 from '../images/project-3.png';
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 
 
 const menu = [
@@ -115,7 +121,52 @@ const slides = [
 ];
 
 
+ const projects = [
+    {
+        id: 1,
+        name: "Foodmandu clone",
+        img: img1,
+        link: "https://foodmandu-clone-101.netlify.app/",
+    },
+    {
+        id: 2,
+        name: "Test Project",
+        img: img2,
+        link: "https://test-gsap-project.netlify.app/",
+    },
+    {
+        id: 3,
+        name: "Musichub Nepal App",
+        img: img3,
+        link: "https://musichubnepal.netlify.app/",
+    },
+];
+
+const contactInfo =[
+    {
+        id: 1,
+        name: "Mobile Number",
+        icon: FaPhoneAlt,
+        link: "+977-9707929963",
+    },
+    {
+        id: 2,
+        name: "Email",
+        icon: MdEmail,
+        link: "ramesh199917@gmail.com",
+    },
+    {
+        id: 3,
+        name: "Address",
+        icon: FaLocationDot,
+        link: "Kathmandu, Nepal",
+    },
+    ]
+
+
         export {
             menu,
             slides,
+            projects,
+            contactInfo,
         }

@@ -1,10 +1,58 @@
-import React from 'react'
-import heroImg1 from '../../assets/images/image.png'
-import heroImg2 from '../../assets/images/hero.png'
-import heroImg3 from '../../assets/images/image.png'
+import React, { useState, useEffect } from 'react'
 import Slider from './Slider'
-
+import {slides} from '../../assets/contants/index'
 const Services = () => {
+
+  const [direction, setDirection] = useState("forward");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setSlidesToShow(2);
+      } else if (window.innerWidth >= 768) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(1);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentSlide, direction]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => {
+      if (direction === "forward") {
+        if (prev === slides.length - slidesToShow) {
+          setDirection("backward");
+          return prev - 1;
+        }
+        return prev + 1;
+      } else {
+        if (prev === 0) {
+          setDirection("forward");
+          return prev + 1;
+        }
+        return prev - 1;
+      }
+    });
+  };
   
   return (
     <div id='services' className="w-full h-screen bg-secondary p-5 ">
@@ -13,7 +61,14 @@ const Services = () => {
 
       {/* slicer section */}
       <div className='container mx-auto'>
-        <Slider/>
+        <Slider 
+        data={slides} 
+        page="services"
+        currentSlide={currentSlide}
+        nextSlide={nextSlide}
+        direction={direction}
+        slidesToShow={slidesToShow}
+        />
       </div>
 
       
