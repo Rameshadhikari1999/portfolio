@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import Buttons from "../../../utility/Buttons";
 import { MdOutlineNavigateNext } from "react-icons/md";
 
+
 const Header = () => {
 const [openNav, setOpenNav] = React.useState(false);
 const [showNav, setShowNav] = React.useState(window.innerWidth >= 1020);
@@ -46,6 +47,13 @@ const [disWidth, setDisWidth] = React.useState(window.innerWidth);
   const handleCloseNav = () => {
     setOpenNav(false);
 }
+
+  const handleHireMe = () => {
+    window.scrollTo({
+      top: document.getElementById("contact").offsetTop,
+      behavior: "smooth",
+    });
+  };
   return (
     <header id="header" className="w-full  bg-primary opacity-1">
       <nav className="w-full  flex justify-between items-center px-3">
@@ -67,7 +75,7 @@ const [disWidth, setDisWidth] = React.useState(window.innerWidth);
         {
           showNav ?
           <div className="w-1/4 flex justify-end">
-            <Buttons title={"Hire Me"} Icon={MdOutlineNavigateNext}  />
+            <Buttons title={"Hire Me"} Icon={MdOutlineNavigateNext} onClick={handleHireMe}  />
           </div>
           :
         <IoMdMenu

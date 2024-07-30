@@ -13,14 +13,14 @@ const Hero = () => {
   };
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Path to the resume file in the public directory
-    link.download = 'resume.pdf'; // The name of the downloaded file
+    link.href = '/resume.pdf';
+    link.download = 'resume.pdf'; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
   return (
-    <div id="home" className="w-screen h-screen ">
+    <div id="home" className="w-full h-screen overflow-x-hidden">
       {/* content section  */}
       <div className="w-full h-full  md:flex md:items-center  relative">
         <div className="absolute top-1/3 left-[10%] ">
@@ -58,11 +58,11 @@ const Hero = () => {
         onClick={handleDownload}
         />
       </div>
-      <div className="absolute bottom-0 right-20 w-1/3">
+      <div className="absolute bottom-0 right-10 md:right-20 w-1/3">
         <img
           src={heroImg}
           alt="hero"
-          className="w-full h-full object-cover object-center"
+          className="w-3/2 h-full object-cover object-center"
         />
       </div>
     </div>
