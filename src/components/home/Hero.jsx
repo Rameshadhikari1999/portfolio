@@ -45,11 +45,11 @@ const Hero = () => {
           />
           <NextPrevBtn
             Icon={FaGithub}
-            onclick={() => handleLink("https://github.com/")}
+            onclick={() => handleLink("https://github.com/Rameshadhikari1999/Rameshadhikari1999.git")}
           />
           <NextPrevBtn
             Icon={FaLinkedin}
-            onclick={() => handleLink("https://www.linkedin.com/")}
+            onclick={() => handleLink("https://www.linkedin.com/in/ramesh-prasad-adhikari")}
           />
         </div>
         <Buttons 
