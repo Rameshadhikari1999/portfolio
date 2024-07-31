@@ -80,6 +80,10 @@ const ContactUs = () => {
   setUserMessage({name : "", email : "", phone : "", message : "", subject : ""});
   };
 
+  const handleSocialLink = (link) => {
+    window.open(link, "_blank");
+  };
+
   return (
     <div id="contact" className="mt-10  px-5 w-full h-fit  bg-secondary mb-10 overflow-x-hidden">
 
@@ -151,9 +155,9 @@ const ContactUs = () => {
             Follow Me
           </h4>
           <div className="flex items-center justify-center gap-10">
-            <NextPrevBtn Icon={FaFacebook} onclick={() => {}} />
-            <NextPrevBtn Icon={FaGithub} onclick={() => {}} />
-            <NextPrevBtn Icon={FaLinkedin} onclick={() => {}} />
+            <NextPrevBtn Icon={FaFacebook} onclick={()=>handleSocialLink('https://www.facebook.com/')} />
+            <NextPrevBtn Icon={FaGithub} onclick={() => handleSocialLink('https://github.com/Rameshadhikari1999/Rameshadhikari1999.git')} />
+            <NextPrevBtn Icon={FaLinkedin} onclick={() => handleSocialLink('https://www.linkedin.com/in/ramesh-prasad-adhikari')} />
           </div>
         </div>
         <div className="w-full md:w-1/2 p-5">
