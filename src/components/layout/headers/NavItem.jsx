@@ -3,18 +3,20 @@ import { Link } from 'react-scroll'
 import './style.css'
 const NavItem = ({item, onClick}) => {
   return (
-    <li  className='w-full text-xl px-4'>
-                    <Link
-                        className='w-fit h-fit  rounded-md text-center block p-3 hover:text-orange-5200 cursor-pointer text-white hover:bg-secondary'
-                        activeClass="active"
-                        to={item.link}
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        onClick={onClick}
-                    >{item.name}</Link>
-                </li>
+    <li className='w-full lg:w-auto list-none'>
+        <Link
+            className='nav-link block py-2 px-4 text-lg font-medium cursor-pointer'
+            activeClass="text-accent !after:w-full"
+            to={item.link}
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            onClick={onClick}
+        >
+          {item.name}
+        </Link>
+    </li>
   )
 }
 

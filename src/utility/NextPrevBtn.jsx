@@ -2,7 +2,10 @@ import React from "react";
 
 const NextPrevBtn = ({ Icon, onclick }) => {
   return (
-    <button onClick={onclick} className="px-5 py-5 flex items-center justify-around text-2xl border-[0.5px] bg-primary border-gray-500  rounded-full text-white hover:bg-white hover:text-gray-700 mx-2 ">
+    <button 
+      onClick={onclick} 
+      className="p-4 flex items-center justify-center text-xl glass rounded-full text-white hover:bg-accent hover:border-accent transition-all duration-300 transform hover:scale-110 active:scale-90"
+    >
       <Icon />
     </button>
   );

@@ -27,11 +27,16 @@ const menu = [
     },
     {
         id: 4,
+        name: "Experience",
+        link: "experience"
+    },
+    {
+        id: 5,
         name: "Projects",
         link: "projects"
     },
     {
-        id: 5,
+        id: 6,
         name: "Contact",
         link: "contact"}];
 
@@ -39,84 +44,68 @@ const menu = [
 const slides = [
     {
         id: 1,
-        title: "Frontend Developer",
+        title: "Web Development",
         Icon: MdDoorFront,
         skils: [
             {
                 id: "1a",
-                name: "Proficient in HTML, CSS, and JavaScript",
+                name: "Full-Stack Web Development using Laravel and React JS",
             },
             {
                 id: "1b",
-                name: "Experienced with React.js and State Management",
+                name: "Crafting responsive and interactive UI/UX with Tailwind CSS",
             },
             {
                 id: "1c",
-                name: "Skilled in Tailwind CSS and Modern Design Principles",
+                name: "Delivering secure and scalable business web applications",
             },
             {
                 id: "1d",
-                name: "Implemented Advanced Animations with GSAP",
-            },
-            {
-                id: "1e",
-                name: "Proficient in Git and GitHub",
+                name: "Optimizing modern frontend performance and accessibility",
             }]},
 
     {
         id: 2,
-        title: "Backend Developer",
+        title: "RESTful API",
         Icon: SiBackendless,
         skils: [
             {
                 id: "2a",
-                name: "Proficient in Server-Side Technologies",
+                name: "Designing and implementing robust RESTful APIs using Laravel",
             },
             {
                 id: "2b",
-                name: "Database Management",
+                name: "Seamless integration with external services and frontends",
             },
             {
                 id: "2c",
-                name: "API Development and Integration",
+                name: "Database performance optimization and query tuning",
             },
             {
                 id: "2d",
-                name: "Authentication and Security",
-            },
-            {
-                id: "2e",
-                name: "Deployment and Maintenance",
-        }]},
+                name: "Implementing secure user authentication and data management",
+            }]},
 
     {
         id: 3,
-        title: "Full Stack Developer",
+        title: "System Architecture",
         Icon: CgWebsite,
         skils: [
             {
                 id: "3a",
-                name: "Full-Stack Development Expertise",
+                name: "Designing comprehensive data architecture and inventory systems",
             },
             {
                 id: "3b",
-                name: "Database Design and Management",
+                name: "Refactoring legacy codebases for enhanced performance",
             },
             {
                 id: "3c",
-                name: "API Development and Integration",
+                name: "Automating operational workflows and business logic",
             },
             {
                 id: "3d",
-                name: "Responsive and Interactive UI/UX Design",
-            },
-            {
-                id: "3e",
-                name: "Version Control and Collaboration",
-            },
-            {
-                id: "3f",
-                name: "Performance Optimization and Security",
+                name: "Architecting scalable and maintainable enterprise software solutions",
             }]},
 ];
 
@@ -147,13 +136,13 @@ const contactInfo =[
         id: 1,
         name: "Mobile Number",
         icon: FaPhoneAlt,
-        link: "+977-9707929963",
+        link: "+977-9865295585",
     },
     {
         id: 2,
         name: "Email",
         icon: MdEmail,
-        link: "ramesh199917@gmail.com",
+        link: "rameshadhikari199917@gmail.com",
     },
     {
         id: 3,

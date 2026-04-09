@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { GrChapterPrevious } from "react-icons/gr";
+import React, { useEffect, useState, useRef } from "react";
+import { GrChapterPrevious, GrChapterNext } from "react-icons/gr";
 import NextPrevBtn from "../../utility/NextPrevBtn";
-import { GrChapterNext } from "react-icons/gr";
 import Slider from "../services/Slider";
 import { projects } from "../../assets/contants";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Projects = () => {
+  const container = useRef();
   const [direction, setDirection] = useState("forward");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(1);
@@ -13,7 +15,7 @@ const Projects = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        setSlidesToShow(2);
+        setSlidesToShow(3);
       } else if (window.innerWidth >= 768) {
         setSlidesToShow(2);
       } else {
@@ -23,88 +25,65 @@ const Projects = () => {
 
     handleResize();
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     nextSlide();
-  //   }, 5000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [currentSlide, direction]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => {
-      if (direction === "forward") {
-        if (prev === projects.length - slidesToShow) {
-          setDirection("backward");
-          return prev - 1;
-        }
-        return prev + 1;
-      } else {
-        if (prev === 0) {
-          setDirection("forward");
-          return prev + 1;
-        }
-        return prev - 1;
-      }
+  useGSAP(() => {
+    gsap.from(".projects-header", {
+      scrollTrigger: {
+        trigger: ".projects-header",
+        start: "top 80%",
+      },
+      opacity: 0,
+      y: 30,
+      duration: 1
     });
+  }, { scope: container });
+
+  const nextSlide = (index) => {
+    if (typeof index === 'number') {
+      setCurrentSlide(index);
+      return;
+    }
+    setCurrentSlide((prev) => (prev + 1) % (projects.length - slidesToShow + 1));
   };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + (projects.length - slidesToShow + 1)) % (projects.length - slidesToShow + 1));
+  };
+
   return (
-    <div id="projects" className="mt-10 px-5 w-full   bg-secondary">
-      <div className="flex justify-between items-center flex-col md:flex-row">
-        <div>
-          <p className="text-sm pl-5 py-5 text-gray-400">|| Awesome Portfolio</p>
-          <h1 className="text-3xl lg:text-5xl pl-5 py-2 capitalize font-Poppins text-gray-300 font-medium">
-            My Complete Projects
-          </h1>
-        </div>
-        <div className="flex items-center justify-around pr-10">
-          <NextPrevBtn Icon={GrChapterPrevious} onclick ={nextSlide} />
-          <NextPrevBtn Icon={GrChapterNext} onclick ={nextSlide} />
-        </div>
-      </div>
-
-      {/* slicer section */}
-      <div className="relative overflow-y-hidden">
-      {/* Full-width slider */}
-      <div className="absolute bottom-0 left-0 w-full h-64 md:h-80 z-20">
-        <Slider 
-        data={projects}
-        page="project"
-        currentSlide={currentSlide}
-        nextSlide={nextSlide}
-        direction={direction}
-        slidesToShow={slidesToShow}
-        />
-      </div>
-      
-      {/* Content below the slider */}
-      <div className="container mx-auto "> {/* Adjust the margin-top to match the height of the slider */}
-        <div className="relative w-full h-96 grid grid-cols-1 md:grid-cols-2 p-5 gap-5">
-          <div className="relative w-full flex items-center justify-center bg-[url('./assets/images/img-3.jpg')] bg-cover bg-center bg-no-repeat rounded-md">
-            <div className="absolute inset-0 bg-primary bg-opacity-95 rounded-md"></div>
-            <div className="relative z-10 text-white p-5">
-              {/* Content for the first image */}
+    <div id="projects" ref={container} className="w-full py-24 px-6 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="projects-header flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] w-8 bg-accent" />
+              <p className="text-sm font-semibold uppercase tracking-widest text-accent">Portfolio</p>
             </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-white">
+              Featured <span className="text-accent underline decoration-accent/20 underline-offset-8">Projects</span>
+            </h1>
           </div>
-        {slidesToShow === 1 ? null :  <div className="relative flex items-center justify-center bg-[url('./assets/images/img-9.jpg')] bg-cover bg-center bg-no-repeat rounded-md ">
-            <div className="absolute inset-0 bg-primary bg-opacity-95 rounded-md"></div>
-            <div className="relative z-10 text-white p-5">
-              {/* Content for the second image */}
-            </div>
-          </div>}
+          
+          <div className="flex items-center gap-4">
+            <NextPrevBtn Icon={GrChapterPrevious} onclick={prevSlide} />
+            <NextPrevBtn Icon={GrChapterNext} onclick={nextSlide} />
+          </div>
+        </div>
+
+        {/* Slider Section */}
+        <div className="relative z-10">
+          <Slider 
+            data={projects}
+            page="project"
+            currentSlide={currentSlide}
+            nextSlide={nextSlide}
+            direction={direction}
+            slidesToShow={slidesToShow}
+          />
         </div>
       </div>
-    </div>
-
-      {/* slicer section */}
     </div>
   );
 };

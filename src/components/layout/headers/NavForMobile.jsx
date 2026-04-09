@@ -7,20 +7,21 @@ const NavForMobile = ({openNav, handleCloseNav}) => {
   
   return (
     <>
-    <nav className={openNav ? `w-[65vw] md:w-[40vw] h-screen translate-x-0 ease-in-out duration-300 bg-primary fixed top-0 right-0 text-white` : `w-[50vw] h-screen translate-x-[150%] ease-in-out duration-300 bg-secondary fixed top-0 right-0 text-white`}>
+    <nav className={`fixed top-0 right-0 h-screen transition-all duration-500 ease-in-out glass z-50 ${openNav ? 'w-[75vw] translate-x-0' : 'w-0 translate-x-full opacity-0'}`}>
+        <div className='flex flex-col h-full p-8'>
+            <div 
+              className='self-end p-2 rounded-full glass hover:bg-white/10 text-3xl cursor-pointer transition-colors mb-12'
+              onClick={handleCloseNav}
+            >
+              <IoCloseSharp />
+            </div>
 
-        <div 
-        className='w-14 h-14 p-3 rounded-full bg-gray-900 hover:bg-gray-700 text-4xl absolute top-5 right-5 cursor-pointer'
-        >
-        <IoCloseSharp onClick={handleCloseNav}  />
+            <ul className='flex flex-col gap-8'>
+                {menu.map((item) => (
+                    <NavItem key={item.id} item={item} onClick={handleCloseNav} />
+                ))}
+            </ul>
         </div>
-
-        <ul className='w-full flex flex-col gap-5 justify-center items-start mx-2 absolute top-[15%] left-0'>
-            {menu.map((item) => (
-                <NavItem key={item.id} item={item} onClick={handleCloseNav} />
-            ))}
-            
-        </ul>
     </nav>
 
     </>
