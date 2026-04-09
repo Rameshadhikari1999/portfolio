@@ -97,7 +97,7 @@ const Hero = () => {
                 />
                 <NextPrevBtn
                   Icon={FaGithub}
-                  onclick={() => handleLink("https://github.com/Rameshadhikari1999")}
+                  onclick={() => handleLink("https://gitlab.com/Ramesh199917")}
                 />
                 <NextPrevBtn
                   Icon={FaLinkedin}
