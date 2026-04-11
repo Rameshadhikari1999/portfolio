@@ -14,9 +14,9 @@ const Slider = ({
 }) => {
   return (
     <div className="w-full h-fit">
-      <div className="w-full flex items-center justify-center overflow-hidden py-10">
+      <div className="w-full flex items-stretch overflow-hidden py-4 md:py-10">
         <div
-          className="flex transition-all cubic-bezier(0.4, 0, 0.2, 1) duration-1000"
+          className="flex items-stretch transition-all duration-1000 ease-in-out w-full"
           style={{
             transform: `translateX(-${(100 / slidesToShow) * currentSlide}%)`,
           }}
@@ -25,10 +25,10 @@ const Slider = ({
             ? data.map((project, index) => (
                 <div
                   key={index}
-                  className={`p-4 flex-shrink-0`}
+                  className={`p-3 md:p-4 flex-shrink-0 flex flex-col`}
                   style={{ width: `${100 / slidesToShow}%` }}
                 >
-                  <div className="glass-card group overflow-hidden rounded-2xl">
+                  <div className="glass-card group overflow-hidden rounded-2xl flex flex-col h-full">
                     <div className="relative overflow-hidden aspect-video">
                       <img 
                         onClick={() => window.open(project.link)} 
@@ -45,7 +45,7 @@ const Slider = ({
                          </button>
                       </div>
                     </div>
-                    <div className="p-6">
+                    <div className="p-4 md:p-6 flex-1">
                       <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">{project.name}</h3>
                     </div>
                   </div>
@@ -55,10 +55,10 @@ const Slider = ({
               data.map((Slide, index) => (
                 <div
                   key={index}
-                  className={`p-4 flex-shrink-0`}
+                  className={`p-3 md:p-4 flex-shrink-0 flex flex-col`}
                   style={{ width: `${100 / slidesToShow}%` }}
                 >
-                  <div className="glass-card h-full p-8 rounded-2xl space-y-6 flex flex-col items-center text-center">
+                  <div className="glass-card h-full p-5 md:p-8 rounded-2xl space-y-4 md:space-y-6 flex flex-col items-center text-center">
                     <div className="p-4 rounded-2xl bg-accent/10 border border-accent/20 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300">
                       <Slide.Icon size={40} />
                     </div>

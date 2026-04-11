@@ -108,7 +108,7 @@ const Skills = () => {
         </div>
 
         {/* Right: Skill Bars */}
-        <div className="space-y-8 pt-[60px]">
+        <div className="space-y-8 lg:pt-[60px]">
           {skills.map((skill, index) => (
             <div key={index} className={`skill-item-${index} space-y-3`}>
               <div className="flex justify-between items-end">

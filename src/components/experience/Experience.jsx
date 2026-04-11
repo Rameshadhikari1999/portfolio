@@ -97,20 +97,20 @@ const Experience = () => {
           </h2>
         </div>
 
-        <div className="exp-list relative pl-8 md:pl-0 max-w-5xl mx-auto">
+        <div className="exp-list relative pl-10 md:pl-0 max-w-5xl mx-auto">
           {/* Timeline Line */}
-          <div className="exp-line absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2" />
+          <div className="exp-line absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2" />
 
           {experiences.map((exp, index) => (
             <div key={index} className={`exp-item relative flex flex-col md:flex-row gap-8 mb-16 last:mb-0 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
               
               {/* Timeline Dot */}
-              <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-12 h-12 bg-primary border-4 border-accent rounded-full flex items-center justify-center z-10 shadow-[0_0_15px_rgba(99,102,241,0.3)] mt-2 md:mt-0">
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 md:w-12 md:h-12 bg-primary border-4 border-accent rounded-full flex items-center justify-center z-10 shadow-[0_0_15px_rgba(99,102,241,0.3)] mt-2 md:mt-0">
                 <exp.icon className="text-white text-lg" />
               </div>
 
               {/* Content Box */}
-              <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
+              <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'} pl-6 md:pl-0`}>
                 <div className="glass-card p-8 rounded-2xl border border-white/5 hover:border-accent/30 transition-colors duration-300 relative group overflow-hidden h-full">
                   <div className="absolute top-0 left-0 w-1 h-full bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
                   

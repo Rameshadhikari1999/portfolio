@@ -46,12 +46,12 @@ const Hero = () => {
   }, { scope: container });
 
   return (
-    <div id="home" ref={container} className="relative w-full min-h-screen flex items-center pt-20 overflow-hidden">
+    <div id="home" ref={container} className="relative w-full flex items-center pt-24 pb-16 md:pt-20 md:min-h-screen overflow-hidden">
       {/* Background Accent Gradients */}
       <div className="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-10%] w-[40%] h-[40%] bg-violet/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left Content */}
         <div className="z-10 order-2 lg:order-1">
           <div className="space-y-6">
@@ -115,7 +115,7 @@ const Hero = () => {
             <img
               src={heroImg}
               alt="Ramesh Prasad Adhikari"
-              className="relative w-[300px] md:w-[450px] lg:w-[500px] aspect-square object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl border border-white/10"
+              className="relative w-[220px] sm:w-[300px] md:w-[400px] lg:w-[500px] aspect-square object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl border border-white/10"
             />
           </div>
         </div>
